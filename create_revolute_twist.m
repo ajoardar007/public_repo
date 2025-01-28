@@ -1,0 +1,9 @@
+function [twist] = create_revolute_twist(axis,point)
+%UNTITLED5 Create twist for each joint
+%   Detailed explanation goes here
+axis_cross_mat = [0 -axis(3,1) axis(2,1);...
+                  axis(3,1) 0 -axis(1,1);...
+                  -axis(2,1) axis(1,1) 0];
+twist = [-axis_cross_mat*point;...
+         axis];
+end

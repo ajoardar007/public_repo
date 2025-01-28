@@ -201,45 +201,6 @@ twist_lin_x_cart = [1;0;0;0;0;0];
 twist_lin_y_cart = [0;1;0;0;0;0];
 twist_ang_z_cart = [0;0;0;0;0;1];
 
-%% Plot Current Summit Cart
-fig_1 = figure(1);
-% Plot Summit
-% Link Summit
-summit_origin = plot_Summit_2D(eye(4),mat_w_G_s_init,summit);
-%plot_link(eye(4),eye(4),link_s_0_delta_lin,'S')
-% Link 0: Base Link
-plot_link(eye(4),mat_w_G_0_init,sim_link_0_1_delta_lin,'S0','k')
-% Link 1: 'Beam'
-plot_link(eye(4),mat_w_G_1_init,sim_link_1_2_delta_lin,'S1','k')
-% Link 2: 'Wrist'
-plot_link(eye(4),mat_w_G_2_init,[0.35;0;0],'S2','k')
-% Link 3: 'Hand Palm'
-plot_link(eye(4),mat_w_G_3_init,-sim_link_2_3_delta_lin,'S3','k')
-
-% Plot Cart
-% Link Cart
-cart_origin = plot_Summit_2D(mat_w_G_c4_init,eye(4),cart);
-% Link Handle Base
-plot_link(eye(4),mat_w_G_c1_init,[0;0;0],'C1','k')
-% Link Handle
-plot_link(eye(4),mat_w_G_c2_init,cart_handle_handle_pos_init,'C2','k')
-% Link Handle Handle
-plot_link(eye(4),mat_w_G_c3_init,[0;0;0],'C3','k')
-
-title('Motion of Summit-WAM-Cart ') %Graph title
-axis equal
-xlabel('X Axis')
-ylabel('Y Axis')
-zlabel('Z Axis')
-set(gca,'fontsize',20)
-view(2)
-grid on
-grid minor
-hold off
-%     axis([-1 1 -1 1 -1 1])
-axis([-4 4 -2 6 -2 2])
-% close(fig_1)
-% pause(0.1)
 %% Dynamic Properties of system
 % Gravity
 g = [0;0;-9.81;0]; % m/sec^2
